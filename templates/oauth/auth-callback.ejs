@@ -16,7 +16,15 @@
             window.opener.superlogin.oauthSession(error, session, link);
         }
     }
-    window.close();
+	if (!error) {
+		window.close();
+	}
 </script>
+
+<% if (error) { %>
+	<h1>Error</h1>
+	<p><%= JSON.stringify(error) %></p>
+<% } %>
+
 </body>
 </html>
